@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomePage from './component/HomePage';
+import AboutPage from './component/AboutPage';
+import SkillsComponent from './component/SkillsComponent';
+import UserContact from './component/UserContact';
+import Submission from './component/Submission';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar bg="dark" variant="dark">
+        <Navbar.Brand href="/">My Profile</Navbar.Brand>
+        <Nav className="mr-auto">
+          <Nav.Link href="/">HomePage</Nav.Link>
+          <Nav.Link href="/about">AboutPage</Nav.Link>
+          <Nav.Link href="/skills">SkillsComponent</Nav.Link>
+          <Nav.Link href="/contact">UserContact</Nav.Link>
+        </Nav>
+      </Navbar>
+      <Container>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/skills" element={<SkillsComponent />} />
+          <Route path="/contact" element={<UserContact />} />
+          <Route path="/success" element={<Submission />} />
+        </Routes>
+      </Container>
+    </Router>
   );
 }
 
