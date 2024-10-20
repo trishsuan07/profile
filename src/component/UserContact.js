@@ -1,56 +1,50 @@
+
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
 function UserContact() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
-  const navigate = useNavigate();
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can handle the form submission here.
-    navigate('/success', { state: { name, email, message } });
+    setIsSubmitted(true);
   };
+
+  if (isSubmitted) {
+    return (
+      <div>
+        <h1>Thank you, {formData.name}!</h1>
+        <p>Your message has been sent:</p>
+        <p>Email: {formData.email}</p>
+        <p>Message: {formData.message}</p>
+      </div>
+    );
+  }
 
   return (
     <div>
-      <h2>Contact Me</h2>
+      <h1>Contact Me</h1>
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Name</label>
-          <input
-            type="text"
-            className="form-control"
-            id="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
+        <div className="mb-3">
+          <label htmlFor="name" className="form-label">Name</label>
+          <input type="text" className="form-control" id="name" name="name" value={formData.name} onChange={handleChange} required />
         </div>
-        <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input
-            type="email"
-            className="form-control"
-            id="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">Email</label>
+          <input type="email" className="form-control" id="email" name="email" value={formData.email} onChange={handleChange} required />
         </div>
-        <div className="form-group">
-          <label htmlFor="message">Message</label>
-          <textarea
-            className="form-control"
-            id="message"
-            rows="3"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            required
-          ></textarea>
+        <div className="mb-3">
+          <label htmlFor="message" className="form-label">Message</label>
+          <textarea className="form-control" id="message" name="message" value={formData.message} onChange={handleChange} required></textarea>
         </div>
-        <button type="submit" className="btn btn-primary mt-2">Submit</button>
+        <button type="submit" className="btn btn-primary">Submit</button>
       </form>
     </div>
   );
