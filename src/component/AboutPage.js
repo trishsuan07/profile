@@ -4,7 +4,7 @@ function AboutPage() {
   return (
     <div>
       <h1 className="text-center" >About Me</h1>
-      <p className="text-center">Hello! I am Russel Zamora, currently studying Computer Science at Pamantasan ng Cabuyao. I enjoy learning new technologies, especially in web development, and working on innovative projects like e-commerce and task management platforms. In terms of sports I enjoy playing badminton.</p>
+      <p className="text-center">Hi Guys, I'm a total sweetheart with a bubbly personality. I love to bake and whip up delicious treats in the kitchen. When I'm not baking, you can find me on the volleyball court, showing off my skills. I'm also a dedicated CS student, tackling those coding challenges with a smile. And let's not forget, I love to be pampered and treated like a baby. </p>
     </div>
   );
 }

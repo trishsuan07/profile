@@ -1,4 +1,3 @@
-
 // src/App.js
 import React from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
@@ -11,12 +10,12 @@ import UserContact from './component/UserContact';
 function App() {
   return (
     <div>
-      <Navbar bg="dark" variant="dark" expand="lg">
+      <Navbar bg="primary" variant="dark" expand="lg">
         <Nav className="ml-auto">
-          <Nav.Link as={Link} to="/">HomePage</Nav.Link>
-          <Nav.Link as={Link} to="/about">AboutPage</Nav.Link>
-          <Nav.Link as={Link} to="/skillsComponent">SkillsComponent</Nav.Link>
-          <Nav.Link as={Link} to="/contact">UserContact</Nav.Link>
+          <Nav.Link as={Link} to="/">Home</Nav.Link>
+          <Nav.Link as={Link} to="/about">About</Nav.Link>
+          <Nav.Link as={Link} to="/skills">Skills</Nav.Link>
+          <Nav.Link as={Link} to="/contact">Contact</Nav.Link>
         </Nav>
       </Navbar>
 
